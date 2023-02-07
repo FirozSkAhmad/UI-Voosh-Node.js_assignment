@@ -10,7 +10,6 @@ function SignUp() {
     const navigate = useNavigate()
     async function checkIn(e) {
         e.preventDefault()
-        console.log(userName, phone, password)
         const body = { userName, phone, password }
         let options = {
             url: "http://localhost:4000/add-user",
@@ -30,7 +29,7 @@ function SignUp() {
                 <input type="text" name="phone" value={phone} placeholder="Phone number" onChange={(e) => setPhone(e.target.value)} />
                 <br />
                 <br />
-                <input type="text" name="password" value={password} placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+                <input type="password" name="password" value={password} placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                 <br />
                 <br />
                 <button>Submit</button>

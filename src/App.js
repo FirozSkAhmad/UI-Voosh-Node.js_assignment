@@ -6,14 +6,14 @@ import NavBar from './Components/Navbar'
 import Login from './Components/Login';
 import SignUp from './Components/SignUp';
 import OrderDetails from './Components/Table';
-import ProtectedR from "./Components/Protected";
+import Protected from "./Components/Protected";
 
 export default function App() {
   return (
     <BrowserRouter>
       <NavBar />
       <Routes>
-        <Route path="/" element={<ProtectedR cmp={Home} />} />
+        <Route path="/" element={<Protected Component={Home} />} />
         <Route path="/login" element={< Login />} />
         <Route path="/signup" element={< SignUp />} />
         <Route path="/orderDetails" element={< OrderDetails />} />

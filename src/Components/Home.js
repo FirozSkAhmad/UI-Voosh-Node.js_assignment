@@ -1,4 +1,3 @@
-import TodoList from "./Table";
 import { useNavigate, NavLink } from 'react-router-dom'
 import { useState } from "react";
 
@@ -10,13 +9,14 @@ function Home() {
     const navigate = useNavigate()
     const [sub_total, setSub_total] = useState("")
     const [phone, setPhone] = useState("")
-    const payload = jwt_decode(localStorage.getItem('token'))
-    const user_Id = payload.user_Id
+
     function signOut() {
         localStorage.removeItem("token")
         navigate("/login")
     }
     async function addOrder() {
+        const payload = jwt_decode(localStorage.getItem('token'))
+        const user_Id = payload.user_Id
         const body = { user_Id, sub_total, phone }
         let options = {
             url: "http://localhost:4000/add-order",
@@ -27,7 +27,6 @@ function Home() {
             data: body,
         }
         const obj = await axios(options)
-        console.log(obj)
         setSub_total("");
         setPhone("");
     }
@@ -43,7 +42,6 @@ function Home() {
             <input type="number" value={sub_total} placeholder="sub_total" onChange={(e) => setSub_total(e.target.value)} />
             <input type="number" value={phone} placeholder="phone number" onChange={(e) => setPhone(e.target.value)} />
             <span><button onClick={addOrder}>Add</button></span>
-            {/* <TodoList /> */}
         </>
     );
 }

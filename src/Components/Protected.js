@@ -1,17 +1,18 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-function ProtectedR(props) {
-  const Component = props.cmp
+function Protected(props) {
+  const { Component } = props
   const navigate = useNavigate();
   useEffect(() => {
-    let token = localStorage.getItem('token');
-    console.log(token)
-    token ? navigate('/') : navigate('/login')
-  }, []);
+    const token = localStorage.getItem('token');
+    if (!token) {
+      navigate('/login')
+    }
+  });
   return (
     <Component />
   )
 }
 
-export default ProtectedR;
+export default Protected;

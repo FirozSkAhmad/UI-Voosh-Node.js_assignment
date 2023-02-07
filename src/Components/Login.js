@@ -9,7 +9,6 @@ function Login() {
     const navigate = useNavigate()
     async function submit(e) {
         e.preventDefault()
-        console.log(phone, password)
         const credentials = { phone, password }
         let options = {
             // Endpoint to send files
@@ -37,7 +36,7 @@ function Login() {
                 <input type="text" name="phone" value={phone} placeholder="Phone Number" onChange={(e) => setPhone(e.target.value)} />
                 <br />
                 <br />
-                <input type="text" name="Password" value={password} placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+                <input type="password" name="Password" value={password} placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                 <br />
                 <br />
                 <button type="submit">Login</button>{" "}

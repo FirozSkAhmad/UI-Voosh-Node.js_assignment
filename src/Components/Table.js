@@ -11,7 +11,6 @@ function OrderDetails() {
     const [data, setData] = useState([])
     useEffect(() => {
         async function fetchData() {
-            console.log("called")
             const options = {
                 url: `http://localhost:4000/get-order`,
                 method: "GET",
